@@ -42,7 +42,11 @@
 #
 # Copyright 2016 Your name here, unless otherwise noted.
 #
-class nginx {
+class nginx (
 
+) inherits nginx::params {
+
+  Class['::nginx::install'] ->
+  Class['::nginx::config']
 
 }
