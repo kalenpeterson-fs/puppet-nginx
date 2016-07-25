@@ -17,5 +17,5 @@ class nginx::params {
   }
 
   $nginx_conf = "${conf_root}/nginx.conf"
-  $port       = 80
+  $port       = '80'
 }
