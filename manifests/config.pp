@@ -6,7 +6,6 @@ class nginx::config (
 ){
   # resources
   $nginx_conf = $::nginx::params::nginx_conf
-  $server_root = $::nginx::parmas::server_root
 
   # Manage the main nginx config file
   file { 'nginx_config':
