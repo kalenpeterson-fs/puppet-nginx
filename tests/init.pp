@@ -9,8 +9,19 @@
 # Learn more about module testing here:
 # https://docs.puppetlabs.com/guides/tests_smoke.html
 #
+
+$web_root = '/tmp/puppet'
+$web_source = 'https://github.com/puppetlabs/exercise-webpage'
+
+vcsrepo { $web_root:
+  ensure   => latest,
+  provider => git,
+  source   => $web_source,
+}
+
 include ::nginx
 ::nginx::server { 'puppet':
   port     => 8000,
-  web_root => '/tmp/puppet',
+  web_root => $web_root,
+  Require  => Vcsrepo[$web_root],
 }

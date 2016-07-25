@@ -43,11 +43,16 @@
 # Copyright 2016 Your name here, unless otherwise noted.
 #
 class nginx (
-
+  $user  = $::nginx::params::user,
+  $group = $::nginx::params::group
 ) inherits nginx::params {
-
-  class {'::nginx::install': } ->
-  class {'::nginx::config': }  ->
+  class {'::nginx::install':
+    user  => $user,
+    group => $group,
+  } ->
+  class {'::nginx::config':
+    user  => $user,
+    group => $group,
+  }  ->
   class {'::nginx::service': }
-
 }

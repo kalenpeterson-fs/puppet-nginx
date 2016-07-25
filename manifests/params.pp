@@ -16,6 +16,8 @@ class nginx::params {
     }
   }
 
+  $user         = 'nginx'
+  $group        = 'nginx'
   $nginx_conf   = "${conf_root}/nginx.conf"
   $nginx_confd  = "${conf_root}/conf.d"
   $server_names = "localhost ${::hostname} ${::fqdn}"
