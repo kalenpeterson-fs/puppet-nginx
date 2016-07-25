@@ -47,6 +47,7 @@ class nginx (
 ) inherits nginx::params {
 
   class {'::nginx::install': } ->
-  class {'::nginx::config': }
+  class {'::nginx::config': }  ->
+  class {'::nginx::service': }
 
 }
