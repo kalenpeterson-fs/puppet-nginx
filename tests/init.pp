@@ -23,5 +23,4 @@ include ::nginx
 ::nginx::server { 'puppet':
   port     => 8000,
   web_root => $web_root,
-  Require  => Vcsrepo[$web_root],
 }
