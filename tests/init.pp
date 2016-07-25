@@ -10,3 +10,7 @@
 # https://docs.puppetlabs.com/guides/tests_smoke.html
 #
 include ::nginx
+::nginx::server { 'puppet':
+  port     => 8000,
+  web_root => '/tmp/puppet',
+}
