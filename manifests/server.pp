@@ -3,10 +3,10 @@
 define nginx::server (
   $port     = undef,
   $web_root = undef,
-  $nginx_confd = $::nginx::params::nginx_confd
 ) {
 
   $server_name = $title
+  $nginx_confd = $::nginx::params::nginx_confd
 
   # Manage the server definition
   file {"${server_name}_conf":
