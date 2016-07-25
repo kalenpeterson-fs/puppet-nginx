@@ -11,8 +11,8 @@ class nginx::config (
   file { 'nginx_config':
     ensure  => present,
     path    => $nginx_conf,
-    owner   => $user,
-    group   => $group,
+    owner   => 'root',
+    group   => 'root',
     mode    => '0644',
     notify  => Service['nginx'],
     content => epp('nginx/nginx.conf.epp', {
