@@ -8,10 +8,15 @@ class nginx::install (
   $prereq_package_names = $::nginx::params::prereq_package_names
   $package_name         = $::nginx::params::package_name
 
-  user { $user:
+  group { $group:
     ensure => present,
-    gid    => $group,
-    before => Package['nginx'],
+  }
+
+  user { $user:
+    ensure  => present,
+    gid     => $group,
+    before  => Package['nginx'],
+    require => Group[$group],
   }
 
   package { $prereq_package_names:
