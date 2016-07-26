@@ -10,16 +10,26 @@
 # https://docs.puppetlabs.com/guides/tests_smoke.html
 #
 
-$web_root = '/tmp/puppet'
-$web_source = 'https://github.com/puppetlabs/exercise-webpage'
+$srv_root = '/srv'
+$web_root = "${srv_root}/puppet"
+$web_source = 'https://github.com/puppetlabs/exercise-webpage.git'
+
+file { $srv_root:
+  ensure => directory,
+  owner  => 'root',
+  group  => 'root',
+  mode   => '0755',
+}
 
 vcsrepo { $web_root:
   ensure   => latest,
   provider => git,
   source   => $web_source,
+  require  => File[$srv_root],
 }
 
-include ::nginx
+class { '::nginx': }
+
 ::nginx::server { 'puppet':
   port     => 8000,
   web_root => $web_root,

@@ -4,7 +4,7 @@ class nginx::config (
   $user  = $::nginx::params::user,
   $group = $::nginx::params::group
 ){
-  # resources
+
   $nginx_conf = $::nginx::params::nginx_conf
 
   # Manage the main nginx config file

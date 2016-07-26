@@ -1,9 +1,8 @@
 # == Class: nginx::params
 #
 class nginx::params {
-  # resources
 
-  # Pre-reqs
+  # OS Specific settings
   case $::osfamily {
     'RedHat': {
       $prereq_package_names = ['epel-release']
@@ -16,6 +15,7 @@ class nginx::params {
     }
   }
 
+  # Default Settings
   $user         = 'nginx'
   $group        = 'nginx'
   $nginx_conf   = "${conf_root}/nginx.conf"

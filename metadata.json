@@ -4,12 +4,11 @@
   "author": "kpeterson",
   "summary": "Install and configure nginx",
   "license": "Apache-2.0",
-  "source": "",
-  "project_page": null,
-  "issues_url": null,
+  "source": "https://github.com/kalenpeterson-fs/puppet-nginx.git",
+  "project_page": "https://github.com/kalenpeterson-fs/puppet-nginx",
+  "issues_url": "https://github.com/kalenpeterson-fs/puppet-nginx/issues",
   "dependencies": [
     {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
   ],
   "data_provider": null
 }
-

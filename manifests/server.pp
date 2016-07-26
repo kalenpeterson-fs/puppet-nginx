@@ -9,7 +9,7 @@ define nginx::server (
   $server      = $title
   $nginx_confd = $::nginx::params::nginx_confd
 
-  # Manage the server definition
+  # Manage the server definition file
   file {"${server}_conf":
     ensure  => present,
     path    => "${nginx_confd}/${server}.conf",
